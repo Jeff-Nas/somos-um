@@ -2,12 +2,13 @@ import { useState } from "react";
 import { TextAaIcon, MinusCircleIcon, PlusCircleIcon } from "@phosphor-icons/react";
 
 export function StudyContent() {
-    const [index, setIndex] = useState(0)
-    const sizes = ["base", "xl", "2xl"]
+    const [index, setIndex] = useState(0);
+    const sizes = ["base", "xl", "2xl"];
+    const titleSizes = ["xl", "2xl", "3xl"];
 
     function increaseFontSize() {
 
-        setIndex((prev) => prev < sizes.length - 1 ? prev + 1 : prev = 3)
+        setIndex((prev) => prev < sizes.length - 1 ? prev + 1 : prev = 2)
     }
     function decreaseFontSize() {
         setIndex((prev) => prev > 0 ? prev - 1 : prev = 0)
@@ -17,20 +18,18 @@ export function StudyContent() {
     return (
 
         <div className="p-2">
-            <div className="flex justify-end">
-                <div className="flex gap-2 bg-gray-200 p-2 rounded-2xl">
+            <div className="flex justify-end sticky top-0 opacity-85">
+                <div className="flex gap-2 bg-gray-800 text-white p-2 rounded-2xl">
                     <button>
                         <MinusCircleIcon
                             onClick={decreaseFontSize}
                             size={28}
-                            className="text-gray-800"
                         />
                     </button>
-                    <TextAaIcon size={28} className="text-gray-800" />
+                    <TextAaIcon size={28} />
                     <button>
                         <PlusCircleIcon
                             size={28}
-                            className="text-gray-800"
                             onClick={() => increaseFontSize()}
                         />
                     </button>
@@ -65,7 +64,7 @@ export function StudyContent() {
                     A fé não nos convida a negar ou minimizar o sofrimento, mas a enxergá-lo sob a luz da presença e da promessa de Deus, ela não elimina a dor, mas nos dá um fundamento para atravessá-la. A boa notícia do evangelho é que em Jesus temos descanso, consolo e esperança, mesmo quando a alma se encontra abatida.
                 </p>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">1. Deus Reconhece a Nossa Dor</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6 sticky top-0`}>1. Deus Reconhece a Nossa Dor</h2>
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
                     “Por que você está abatida, ó minha alma? Por que se perturba dentro de mim? Ponha a sua esperança em Deus! Pois ainda o louvarei; ele é o meu Salvador e o meu Deus.” <b>Salmo 42:5</b>
                 </blockquote>
@@ -76,7 +75,7 @@ export function StudyContent() {
                     Um cristão que enfrenta ansiedade pode ser tentado a negar seus sentimentos para parecer “forte na fé”. Mas o primeiro passo para a cura é reconhecer diante de Deus: “Senhor, estou abatido, mas escolho confiar em Ti”. Assim como Davi, falar com a alma é reafirmar a esperança.
                 </p>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">2. Jesus Acolhe os Cansados</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>2. Jesus Acolhe os Cansados</h2>
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
                     “Venham a mim, todos os que estão cansados e sobrecarregados, e eu lhes darei descanso. Tomem sobre vocês o meu jugo e aprendam de mim, pois sou manso e humilde de coração, e vocês encontrarão descanso para as suas almas. Pois o meu jugo é suave e o meu fardo é leve.” <b>Mateus 11:28-30</b>
                 </blockquote>
@@ -99,7 +98,7 @@ export function StudyContent() {
                     Assim, entendemos que Jesus não apenas retira nossos pesos, mas os substitui por Seu jugo suave e leve (Mt 11:30). Ele não promete ausência de problemas, mas descanso real para a alma. A cada vez que oramos, confiamos, obedecemos, adoramos e vivemos em comunidade, estamos efetivamente entregando a Ele aquilo que não conseguimos carregar sozinhos.
                 </p>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">3. Peça Ajuda!</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>3. Peça Ajuda!</h2>
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
                     “Acaso não sabem que o corpo de vocês é santuário do Espírito Santo que habita em vocês, que lhes foi dado por Deus, e que vocês não são de si mesmos?” <b>1 Coríntios 6:19</b>
                 </blockquote>
@@ -113,7 +112,7 @@ export function StudyContent() {
                     Esteja atento também às pessoas que estão à sua volta, como seu cônjuge, filhos, pais, familiares ou amigos, pois pessoas que enfrentam quadros depressivos, muitas vezes, não conseguem pedir ajuda. Portanto, busque olhar com empatia para momentos de vulnerabilidade de pessoas próximas.
                 </p>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">Para Discussão</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Para Discussão</h2>
                 <ul className="list-disc pl-6 space-y-2">
                     <li>Por que a fé não nos impede de sentir tristeza, ansiedade ou angústia, e como você lida com suas dores emocionais?</li>
                     <li>De que forma reconhecer e falar sobre sua dor, como Davi fez no Salmo 42, pode ajudá-lo a buscar socorro em Deus?</li>
@@ -123,12 +122,12 @@ export function StudyContent() {
                     <li>Que ações concretas você pode tomar nesta semana para apoiar a si mesmo ou alguém próximo que esteja enfrentando sofrimento emocional?</li>
                 </ul>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">Desafio Semanal</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Desafio Semanal</h2>
                 <p>
                     Durante a semana, escolha um momento por dia para entregar suas ansiedades a Deus em oração. Se possível, anote em um caderno suas preocupações e depois ore entregando-as ao Senhor.
                 </p>
 
-                <h2 className="text-xl font-semibold text-gray-800 mt-6">Sugestão Devocional</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Sugestão Devocional</h2>
                 <ul className="list-disc pl-6 space-y-2">
                     <li><b>Dia 1:</b> Leia Salmo 34:18 – Deus está perto do coração quebrantado.</li>
                     <li><b>Dia 2:</b> Leia Isaías 41:10 – Não temas, Ele te fortalece.</li>
