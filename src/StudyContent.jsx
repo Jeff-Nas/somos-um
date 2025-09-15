@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { TextAaIcon, MinusCircleIcon, PlusCircleIcon } from "@phosphor-icons/react";
+import { TextAaIcon, MinusCircleIcon, PlusCircleIcon, MoonIcon, SunIcon, ArrowSquareOutIcon } from "@phosphor-icons/react";
 
 export function StudyContent() {
     const [index, setIndex] = useState(0);
+    const [darkMode, setDarkMode] = useState(false)
     const sizes = ["base", "xl", "2xl"];
     const titleSizes = ["xl", "2xl", "3xl"];
 
@@ -13,13 +14,37 @@ export function StudyContent() {
     function decreaseFontSize() {
         setIndex((prev) => prev > 0 ? prev - 1 : prev = 0)
     }
+    function applyDarkMode() {
+        setDarkMode(true)
+    }
+    function removeDarkMode() {
+        setDarkMode(false)
+    }
 
 
     return (
 
-        <div className="p-2">
-            <div className="flex justify-end sticky top-0 opacity-85">
-                <div className="flex gap-2 bg-gray-800 text-white p-2 rounded-2xl">
+        <div className={`p-2 ${darkMode ? "dark:bg-gray-900 dark:text-gray-200" : ""}`}>
+            <div className="flex justify-between sticky top-0 opacity-85">
+                <div className="flex gap-4 bg-gray-800 dark:bg-gray-700 text-white p-2 rounded-2xl">
+                    <button>
+                        <SunIcon
+                            size={28}
+                            onClick={removeDarkMode}
+                            weight={`${!darkMode ? "fill" : "regular"}`}
+
+                        />
+                    </button>
+                    <button>
+                        <MoonIcon
+                            size={28}
+                            onClick={applyDarkMode}
+                            weight={`${darkMode ? "fill" : "regular"}`}
+                        />
+                    </button>
+                </div>
+
+                <div className="flex gap-2 bg-gray-800 dark:bg-gray-700 text-white p-2 rounded-2xl">
                     <button>
                         <MinusCircleIcon
                             onClick={decreaseFontSize}
@@ -35,113 +60,283 @@ export function StudyContent() {
                     </button>
                 </div>
             </div>
+
             <div className="flex items-center justify-between">
                 <h2 className="text-xl font-semibold">Série de Estudos DNA</h2>
                 <img className="w-26" src="ensino_logo.png" alt="Logo do curso Ensino" />
             </div>
-            <div className={`text-${sizes[index]} text-gray-950 leading-relaxed space-y-4 font-meonserrat`}>
-                <h1 className="text-3xl font-semibold text-gray-900">Estudo 1 – Deus se Importa com a Nossa Alma</h1>
+            <div className={`text-${sizes[index]} leading-relaxed space-y-4 font-montserrat`}>
+                <h1 className="text-3xl font-semibold">
+                    Estudo 3 – A Âncora da Alma – Sustentados pela Esperança
+                </h1>
 
                 <p>
-                    Muitas vezes pensamos que ter fé significa nunca sentir tristeza, ansiedade ou angústia. Mas a Bíblia mostra que até homens e mulheres de Deus passaram por períodos de dor emocional. Elias pediu a morte (1Rs 19), Davi chorou e questionou (Sl 42), Jeremias lamentou profundamente (Lm 3). Isso nos ensina que a dor não nos afasta de Deus, é justamente nela que Ele mais se aproxima.
-                </p>
-                <p>
-                    A dor é uma realidade inevitável da experiência humana após a queda. Não é apenas uma consequência do pecado que entrou no mundo (Gn 3), mas também um meio pelo qual Deus nos molda, nos chama e nos revela sua graça.
-                </p>
-                <p>
-                    C.S. Lewis descreve a dor como “o megafone de Deus para despertar um mundo surdo” (<i>O Problema do Sofrimento</i>). Quando tudo vai bem, tendemos a viver de forma independente, mas no sofrimento somos lembrados de nossa fragilidade e necessidade de Deus.
-                </p>
-                <p>
-                    É importante olharmos sob a perspectiva de Cristo, pois Jesus não apenas nos dá forças na dor, mas entrou nela conosco. Na cruz, Jesus experimentou abandono, angústia e sofrimento para que nunca estivéssemos sozinhos em nossas lutas. Ele se identifica com nossas lágrimas (Hb 4:15) e nos dá descanso verdadeiro: “Vinde a mim todos os que estais cansados e sobrecarregados, e eu vos aliviarei” (Mt 11:28).
-                </p>
-                <p>
-                    Embora não devamos romantizar o sofrimento, a Bíblia mostra que Deus pode usar a dor para nos refinar. Paulo fala do “espinho na carne” (2Co 12:7-10) como algo que o manteve dependente da graça de Cristo. A dor não é fim em si mesma, mas pode ser meio de amadurecimento espiritual.
-                </p>
-                <p>
-                    Enquanto a filosofia e a psicologia tentam dar significado à dor pela lógica humana, o cristianismo aponta para a esperança eterna. Em Cristo, a dor nunca é a palavra final, pois o sofrimento pode ser temporário, mas as glórias que nos esperam são eternas. Deus não envia dor como castigo para seus filhos, mas nos encontra em meio a ela com sua graça abundante. O sofrimento pode revelar nossas limitações, mas também manifesta a suficiência do amor de Deus.
-                </p>
-                <p>
-                    A fé não nos convida a negar ou minimizar o sofrimento, mas a enxergá-lo sob a luz da presença e da promessa de Deus, ela não elimina a dor, mas nos dá um fundamento para atravessá-la. A boa notícia do evangelho é que em Jesus temos descanso, consolo e esperança, mesmo quando a alma se encontra abatida.
+                    Quando enfrentamos sofrimento emocional, muitas vezes sentimos que não há saída.
+                    Mas a esperança em Cristo é o que nos mantém firmes. Jeremias, mesmo em lágrimas, declarou:
+                    “Todavia, lembro-me disto e por isso tenho esperança: o amor do Senhor nunca cessa”
+                    (<b>Lamentações 3:21-22</b>).
                 </p>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6 sticky top-0`}>1. Deus Reconhece a Nossa Dor</h2>
+                <p>
+                    A esperança bíblica não é um otimismo vazio ou um desejo frágil de que tudo dará certo, mas sim
+                    uma confiança inabalável no caráter de Deus e nas promessas que Ele já cumpriu em Cristo.
+                    O autor de Hebreus afirma: “Temos essa esperança como âncora da alma, firme e segura”
+                    (<b>Hebreus 6:19</b>).
+                </p>
+
+                <p>
+                    Assim como uma âncora impede que o barco seja levado pelas ondas e tempestades, a esperança em
+                    Jesus mantém nosso coração firme em meio às lutas e incertezas da vida.
+                </p>
+
+                <p>
+                    Na cruz, Jesus conquistou não apenas o perdão dos pecados, mas também a vitória sobre a morte e o
+                    desespero. É por isso que o apóstolo Pedro declara:
+                    “Bendito seja o Deus e Pai de nosso Senhor Jesus Cristo! Conforme a sua grande misericórdia, ele
+                    nos regenerou para uma esperança viva, por meio da ressurreição de Jesus Cristo dentre os mortos”
+                    (<b>1 Pedro 1:3</b>).
+                </p>
+
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
-                    “Por que você está abatida, ó minha alma? Por que se perturba dentro de mim? Ponha a sua esperança em Deus! Pois ainda o louvarei; ele é o meu Salvador e o meu Deus.” <b>Salmo 42:5</b>
+                    “A fé cristã não é apenas uma série de doutrinas a serem acreditadas, mas uma esperança que
+                    transforma a forma como enfrentamos o sofrimento e até a morte. Só a ressurreição nos dá um futuro
+                    tão seguro que muda completamente o nosso presente.” <b>Timothy Keller</b>
                 </blockquote>
+
                 <p>
-                    Davi não esconde sua dor, mas fala com a própria alma, reconhecendo seu abatimento. O salmo mostra que a fé não elimina a angústia, mas nos ensina a transformar a dor em oração. A dor nos chama a voltar nossa atenção para Deus.
-                </p>
-                <p>
-                    Um cristão que enfrenta ansiedade pode ser tentado a negar seus sentimentos para parecer “forte na fé”. Mas o primeiro passo para a cura é reconhecer diante de Deus: “Senhor, estou abatido, mas escolho confiar em Ti”. Assim como Davi, falar com a alma é reafirmar a esperança.
+                    Essa esperança nos lembra de que o sofrimento é passageiro e de que o melhor ainda está por vir.
+                    Paulo, que enfrentou prisões, perseguições e dores profundas, pôde declarar:
+                    “Os sofrimentos do tempo presente não podem ser comparados com a glória a ser revelada em nós”
+                    (<b>Romanos 8:18</b>).
                 </p>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>2. Jesus Acolhe os Cansados</h2>
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
-                    “Venham a mim, todos os que estão cansados e sobrecarregados, e eu lhes darei descanso. Tomem sobre vocês o meu jugo e aprendam de mim, pois sou manso e humilde de coração, e vocês encontrarão descanso para as suas almas. Pois o meu jugo é suave e o meu fardo é leve.” <b>Mateus 11:28-30</b>
+                    “Por que você está assim tão triste, ó minha alma? Espere em Deus! Pois ainda o louvarei;
+                    ele é o meu Salvador e o meu Deus” (<b>Salmos 42:11</b>).
                 </blockquote>
+
                 <p>
-                    Carregar fardos faz parte da experiência humana. Todos nós enfrentamos momentos de ansiedade, culpa, medo, solidão e cansaço. A boa notícia é que Jesus não nos chama para esconder esses pesos, mas para trazê-los até Ele. Esse convite mostra que Ele não é indiferente à nossa dor, mas deseja nos aliviar.
-                </p>
-                <p>
-                    Um dos fardos mais comuns é a ansiedade em relação ao futuro. Nos preocupamos com o amanhã, mas a Palavra nos lembra: “Lancem sobre ele toda a sua ansiedade, porque ele tem cuidado de vocês” (1Pe 5:7). Quando entregamos nossos medos ao Senhor, recebemos a paz que excede todo entendimento (Fp 4:6-7). Outro peso que aprisiona muitos é a culpa do passado. No entanto, em Cristo não há condenação (Rm 8:1). Ele nos perdoa e nos restaura, lembrando que nossa identidade não está em nossos erros, mas em sermos filhos amados de Deus.
-                </p>
-                <p>
-                    Também enfrentamos a solidão, especialmente quando nos sentimos abandonados. Mas Jesus nos assegura: “E eu estarei sempre com vocês, até o fim dos tempos” (Mt 28:20). Sua presença constante nos conforta, e Ele nos insere na comunidade de fé para não caminharmos sozinhos. Até mesmo o medo e a insegurança podem nos sufocar, mas Jesus disse: “Não tenha medo, apenas creia” (Mc 5:36). Ele nos sustenta nas incertezas da vida, seja em um diagnóstico difícil, seja em uma situação financeira complicada.
-                </p>
-                <p>
-                    Na prática, como podemos entregar esses fardos a Jesus? O primeiro passo é a oração sincera, sem máscaras. Deus se agrada de quando abrimos o coração e dizemos: “Senhor, eu não consigo lidar com isso, entrego em Tuas mãos”. Além disso, a entrega precisa ser diária, renovada a cada manhã, confiando que Ele carregará conosco os pesos do dia. A leitura da Palavra também é fundamental, pois ela renova nossa mente e nos ajuda a enxergar a vida sob a perspectiva de Deus; por exemplo, Mateus 6:25-34 é um bálsamo para os dias de preocupação com a provisão.
-                </p>
-                <p>
-                    Outra forma prática de lançar nossos fardos sobre Ele é através da adoração. Louvar mesmo em meio às lutas é reconhecer que Deus é maior do que qualquer problema. A vida comunitária também faz parte desse processo, já que a Bíblia nos exorta a levarmos as cargas uns dos outros (Gl 6:2). Não fomos chamados para viver sozinhos, mas para compartilhar dores e vitórias. Por fim, entregar nossos fardos envolve obedecer a Cristo. Muitas vezes, isso significa liberar perdão, mudar atitudes ou confiar em passos de fé que Ele nos pede.
-                </p>
-                <p>
-                    Assim, entendemos que Jesus não apenas retira nossos pesos, mas os substitui por Seu jugo suave e leve (Mt 11:30). Ele não promete ausência de problemas, mas descanso real para a alma. A cada vez que oramos, confiamos, obedecemos, adoramos e vivemos em comunidade, estamos efetivamente entregando a Ele aquilo que não conseguimos carregar sozinhos.
+                    A esperança em Cristo é mais do que uma ideia, é uma âncora que nos mantém firmes,
+                    lembrando-nos de que o nosso futuro já está garantido em Deus.
                 </p>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>3. Peça Ajuda!</h2>
+                {/* --- Seções --- */}
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    1. Sustentados pela Esperança
+                </h2>
+
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic">
-                    “Acaso não sabem que o corpo de vocês é santuário do Espírito Santo que habita em vocês, que lhes foi dado por Deus, e que vocês não são de si mesmos?” <b>1 Coríntios 6:19</b>
+                    “Quero trazer à memória o que me pode dar esperança. As misericórdias do Senhor são a causa
+                    de não sermos consumidos, porque as suas misericórdias não têm fim; renovam-se cada manhã.
+                    Grande é a tua fidelidade.” <b>Lamentações 3:21-23</b>
                 </blockquote>
+
                 <p>
-                    Deus nos criou de forma integral: corpo, alma e espírito (1Ts 5:23). Por isso, cuidar da mente e do corpo também é parte da vida espiritual. Buscar auxílio médico ou terapêutico não é falta de fé, mas sabedoria. Assim como vamos ao médico quando temos uma fratura, também podemos buscar apoio profissional quando nossa saúde mental está abalada.
-                </p>
-                <p>
-                    C.S. Lewis lembrava que o cristianismo não é contra a razão, mas a ilumina. Da mesma forma, a fé não se opõe à ciência, mas pode caminhar junto com ela para nosso bem. Se você estiver precisando dar mais atenção para a sua saúde mental, pode combinar tratamento médico com disciplinas espirituais como oração, leitura da Palavra e vida em comunidade. Enquanto o remédio e a terapia tratam aspectos biológicos e emocionais, a fé fortalece o coração com esperança e propósito. Não negligencie a sua saúde, isso é sua responsabilidade!
-                </p>
-                <p>
-                    Esteja atento também às pessoas que estão à sua volta, como seu cônjuge, filhos, pais, familiares ou amigos, pois pessoas que enfrentam quadros depressivos, muitas vezes, não conseguem pedir ajuda. Portanto, busque olhar com empatia para momentos de vulnerabilidade de pessoas próximas.
+                    A beleza da esperança bíblica está no fato de que Deus não nos deixa presos ao ontem.
+                    Cada novo dia é um lembrete da graça que nos alcança e da oportunidade de recomeçar.
+                    O passado pode carregar dores, erros e pecados, mas em Cristo não somos definidos por eles.
+                    O apóstolo Paulo nos lembra: “Assim que, se alguém está em Cristo, é nova criatura;
+                    as coisas antigas já passaram; eis que se fizeram novas” (<b>2 Coríntios 5:17</b>).
                 </p>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Para Discussão</h2>
+                <p>
+                    Não precisamos viver debaixo da culpa ou da condenação, porque Jesus já levou sobre si toda
+                    acusação na cruz.
+                </p>
+
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic">
+                    “A condenação nos prende ao passado, mas a graça de Deus nos impulsiona para o futuro.
+                    A cada manhã, Deus não nos apresenta um relatório de falhas, mas uma nova página em branco para
+                    escrevermos com Ele.” <b>Joseph Prince</b>
+                </blockquote>
+
+                <p>
+                    Essa verdade nos liberta: não precisamos carregar o peso do ontem. Podemos levantar todos os dias
+                    com a confiança de que as misericórdias do Senhor são novas e suficientes para nos sustentar.
+                    Como disse o salmista: “À noite pode vir o choro, mas a alegria vem pela manhã”
+                    (<b>Salmos 30:5</b>).
+                </p>
+
+                <p>
+                    Portanto, quando falhamos, não precisamos nos entregar ao desespero. A vida espiritual nos ajuda a
+                    recomeçar, mesmo após quedas, porque a obra da cruz nos garante perdão e restauração.
+                </p>
+
+                {/* Seção 2 */}
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    2. Sustentados pela Vida em Cristo
+                </h2>
+
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic">
+                    “O ladrão vem apenas para roubar, matar e destruir; eu vim para que tenham vida e a tenham
+                    plenamente.” <b>João 10:10</b>
+                </blockquote>
+
+                <p>
+                    A vida abundante que Cristo nos oferece não é medida pela ausência de problemas, mas pela presença
+                    de Deus em cada detalhe da nossa jornada. O inimigo tenta roubar nossa alegria, matar nossos sonhos
+                    e destruir nosso propósito, mas em Cristo encontramos plenitude que transcende circunstâncias.
+                </p>
+
+                <p>
+                    Abundância não significa ter tudo o que queremos, mas viver no centro da vontade de Deus,
+                    onde encontramos significado, propósito e verdadeira satisfação.
+                </p>
+
+                <p>
+                    Na vida cristã, essa abundância se manifesta em várias dimensões: perdão dos pecados, liberdade da
+                    condenação, certeza da salvação, descanso em Deus, reconciliação com os outros e serviço no Reino.
+                </p>
+
+                {/* Seção 3 */}
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    3. Sustentados pela Comunhão
+                </h2>
+
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic">
+                    “Levai as cargas uns dos outros e, assim, cumprireis a lei de Cristo.” <b>Gálatas 6:2</b>
+                </blockquote>
+
+                <p>
+                    A vida cristã nunca foi planejada para ser vivida de forma isolada. Desde o início, Deus afirmou:
+                    “Não é bom que o homem esteja só” (<b>Gênesis 2:18</b>). Esse princípio aplica-se também à vida em
+                    comunidade. O corpo de Cristo é formado por muitos membros, cada um com sua função, mas todos
+                    interdependentes (<b>1 Coríntios 12:12-27</b>).
+                </p>
+
+                <p>
+                    A igreja, portanto, deve ser um lugar de acolhimento, apoio e intercessão. Em um mundo que valoriza
+                    a individualidade e o isolamento, a comunhão cristã é um antídoto poderoso contra a solidão e a
+                    fragilidade espiritual.
+                </p>
+
+                <p>
+                    O autor de Hebreus nos adverte: “Não deixemos de reunir-nos como igreja, segundo o costume de
+                    alguns, mas procuremos encorajar-nos uns aos outros” (<b>Hebreus 10:25</b>).
+                </p>
+
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic">
+                    “O Cristo no coração do meu irmão é mais forte do que o Cristo no meu próprio coração.”
+                    <b>Dietrich Bonhoeffer</b>
+                </blockquote>
+
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic">
+                    “Você não foi criado para viver isolado. Nós precisamos uns dos outros para crescer, encorajar
+                    e cumprir os propósitos de Deus.” <b>Rick Warren</b>
+                </blockquote>
+
+                <p>
+                    A igreja é uma rede de apoio que nos ajuda a carregar as cargas, celebrar as vitórias e perseverar
+                    na fé. Essa comunhão é um reflexo do amor de Cristo que nos une como família espiritual.
+                </p>
+
+                {/* Discussão */}
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    Para Discussão
+                </h2>
                 <ul className="list-disc pl-6 space-y-2">
-                    <li>Por que a fé não nos impede de sentir tristeza, ansiedade ou angústia, e como você lida com suas dores emocionais?</li>
-                    <li>De que forma reconhecer e falar sobre sua dor, como Davi fez no Salmo 42, pode ajudá-lo a buscar socorro em Deus?</li>
-                    <li>Quais fardos você precisa entregar a Jesus hoje e como Ele pode aliviar sua ansiedade, culpa ou medo?</li>
-                    <li>Que práticas (oração, adoração, leitura da Palavra, comunidade) ajudam você a entregar seus fardos e encontrar descanso em Cristo?</li>
-                    <li>Como cuidar da saúde mental e física reflete seu cuidado com o corpo e a alma como templo do Espírito Santo (1Co 6:19)?</li>
-                    <li>Que ações concretas você pode tomar nesta semana para apoiar a si mesmo ou alguém próximo que esteja enfrentando sofrimento emocional?</li>
+                    <li>O que significa, na prática, ter a esperança como “âncora da alma”? Você já experimentou essa realidade?</li>
+                    <li>Em que aspectos a esperança cristã é diferente de um otimismo humano?</li>
+                    <li>Como a ressurreição de Cristo garante uma esperança viva?</li>
+                    <li>De que forma podemos renovar nossa esperança a cada manhã?</li>
+                    <li>O que a vida abundante em Cristo significa para você hoje?</li>
+                    <li>Qual é o papel da comunhão cristã para nos ajudar a permanecer firmes?</li>
                 </ul>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Desafio Semanal</h2>
+                {/* Desafio e Devocional */}
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    Desafio Semanal
+                </h2>
                 <p>
-                    Durante a semana, escolha um momento por dia para entregar suas ansiedades a Deus em oração. Se possível, anote em um caderno suas preocupações e depois ore entregando-as ao Senhor.
+                    Durante a semana, ore e envie uma mensagem de encorajamento para alguém do grupo todos os dias.
+                    Seja um instrumento de esperança.
                 </p>
 
-                <h2 className={`text-${titleSizes[index]} font-semibold text-gray-800 mt-6`}>Sugestão Devocional</h2>
+                <h2 className={`text-${titleSizes[index]} font-semibold mt-6`}>
+                    Sugestão Devocional
+                </h2>
+
                 <ul className="list-disc pl-6 space-y-2">
-                    <li><b>Dia 1:</b> Leia Salmo 34:18 – Deus está perto do coração quebrantado.</li>
-                    <li><b>Dia 2:</b> Leia Isaías 41:10 – Não temas, Ele te fortalece.</li>
-                    <li><b>Dia 3:</b> Leia 1 Pedro 5:7 – Lance sobre Ele a sua ansiedade.</li>
-                    <li><b>Dia 4:</b> Leia Salmo 23:1-3 – Ele restaura a alma.</li>
-                    <li><b>Dia 5:</b> Leia Mateus 11:28-30 – Jesus traz descanso.</li>
+                    <li>
+                        Dia 1: Leia{" "}
+                        <a
+                            className="text-blue-600 font-bold underline hover:text-blue-800 transition inline-flex items-center gap-1"
+                            href="https://bible.com/bible/129/jer.29.11.NVI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lamentações 3:21-23
+                            <ArrowSquareOutIcon size={16} weight="regular" />
+                        </a>{" "}
+                        – As misericórdias do Senhor se renovam.
+                    </li>
+                    <li>
+                        Dia 2: Leia{" "}
+                        <a
+                            className="text-blue-600 font-bold underline hover:text-blue-800 transition inline-flex items-center gap-1"
+                            href="https://bible.com/bible/129/jer.29.11.NVI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Jeremias 29:11
+                            <ArrowSquareOutIcon size={16} weight="regular" />
+                        </a>{" "}
+                        – Deus tem planos de paz e esperança.
+                    </li>
+                    <li>
+                        Dia 3: Leia{" "}
+                        <a
+                            className="text-blue-600 font-bold underline hover:text-blue-800 transition inline-flex items-center gap-1"
+                            href="https://bible.com/bible/129/jhn.10.10.NVI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            João 10:10
+                            <ArrowSquareOutIcon size={16} weight="regular" />
+                        </a>{" "}
+                        – Vida abundante em Cristo.
+                    </li>
+                    <li>
+                        Dia 4: Leia{" "}
+                        <a
+                            className="text-blue-600 font-bold underline hover:text-blue-800 transition inline-flex items-center gap-1"
+                            href="https://bible.com/bible/129/heb.6.19.NVI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Hebreus 6:19
+                            <ArrowSquareOutIcon size={16} weight="regular" />
+                        </a>{" "}
+                        – A esperança é âncora da alma.
+                    </li>
+                    <li>
+                        Dia 5: Leia{" "}
+                        <a
+                            className="text-blue-600 font-bold underline hover:text-blue-800 transition inline-flex items-center gap-1"
+                            href="https://bible.com/bible/129/rom.15.13.NVI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Romanos 15:13
+                            <ArrowSquareOutIcon size={16} weight="regular" />
+                        </a>{" "}
+                        – O Deus da esperança enche de paz e alegria.
+                    </li>
                 </ul>
 
-                <footer className="mt-8 text-sm text-gray-600">
-                    <p><b>IMPORTANTE:</b> Esse conteúdo é de autoria da CCVideira, podendo ser impresso para compartilhamento da Palavra de Deus, no entanto, é estritamente proibida a sua alteração ou veiculação sem indicação da fonte.</p>
-                    <p>Rua Elizeu Oriá, 1553 - José de Alencar, Fortaleza - CE, 60830-035</p>
-                    <p>(85) 3878-0100 - <a href="http://www.ccvideira.com.br" className="text-blue-600 hover:underline">www.ccvideira.com.br</a></p>
+
+                {/* Footer único */}
+                <footer className="text-sm text-gray-500 border-t pt-4 mt-8">
+                    <p><b>Série de Estudos DNA</b></p>
+                    <p>
+                        IMPORTANTE: Esse conteúdo é de autoria da CCVideira, podendo ser impresso para compartilhamento
+                        da Palavra de Deus, no entanto, é estritamente proibida a sua alteração ou veiculação sem indicação
+                        da fonte. Rua Elizeu Oriá, 1553 - José de Alencar, Fortaleza - CE, 60830-035
+                    </p>
+                    <p>(85) 3878-0100 - www.ccvideira.com.br</p>
                 </footer>
             </div>
+
         </div>
     )
 }

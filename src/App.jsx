@@ -6,7 +6,7 @@ function App() {
 
 
   return (
-    <main className='h-full'>
+    <main className='h-full text-gray-900'>
       <Header />
       <StudyContent />
     </main>
