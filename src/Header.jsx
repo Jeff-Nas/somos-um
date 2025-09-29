@@ -6,7 +6,7 @@ export function Header() {
                 <h1 className="text-2xl font-montserrat font-bold">Somos Um</h1>
                 <img className="w-12" src="ccvideira.png" alt="Logo CCVideira" />
             </div>
-            <img src="baner-ancora.png" alt="banner" />
+            <img src="estudo-profecia.png" alt="banner" />
             <hr className="border-b-1 my-2 border-gray-600"></hr>
         </div>
     )
