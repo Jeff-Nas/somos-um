@@ -62,7 +62,7 @@ export function StudyContent() {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between py-3">
                 <h2 className="text-xl font-semibold">Série de Estudos DNA</h2>
                 <img className="w-26" src="ensino_logo.png" alt="Logo do curso Ensino" />
             </div>
